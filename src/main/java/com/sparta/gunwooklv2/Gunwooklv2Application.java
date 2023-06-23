@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 
 @EnableJpaAuditing // 생성일자 생성날짜 등을 자동을 관리해주기 위해 JpaAuditing 사용
-@SpringBootApplication
+@SpringBootApplication // 스프링부트 기본설정
 public class Gunwooklv2Application {
 
 	public static void main(String[] args) {
