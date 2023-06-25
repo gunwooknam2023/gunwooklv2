@@ -3,14 +3,14 @@ package com.sparta.gunwooklv2.jwt;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SecurityException;
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
@@ -33,7 +33,8 @@ public class JwtUtil {
     @Value("${jwt.secret.key}") // Application.properties 에 넣어놓은 값을 가져올 수 있음
     private String secretKey;
     private Key key; // Token을 만들 때 넣어줄 Key 값
-    private final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+
+    private final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.ES256;
 
     @PostConstruct // 처음 객체가 생성 될 때 초기화하는 함수
     public void init() {

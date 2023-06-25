@@ -6,7 +6,6 @@ import com.sparta.gunwooklv2.dto.SignupRequestDto;
 import com.sparta.gunwooklv2.dto.StatusResult;
 import com.sparta.gunwooklv2.entity.User;
 import com.sparta.gunwooklv2.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
