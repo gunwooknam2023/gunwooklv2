@@ -7,6 +7,7 @@ import com.sparta.gunwooklv2.dto.StatusResult;
 import com.sparta.gunwooklv2.service.PostService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,11 +37,14 @@ public class PostController {
     @PutMapping("/posts/{id}") //  선택한 게시글 수정 API
     public PostResponseDto updatePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto, HttpServletRequest request){
         return postService.updatePost(id, requestDto, request);
-        )
     }
 
+
     @DeleteMapping("/posts/{id}") // 선택한 게시글 삭제 API
-    public StatusResult.deletePost(@PathVariable Long id, )
+    public StatusResult deletePost(@PathVariable Long id, HttpServletRequest request){
+        postService.deletePost(id, request);
+        return new StatusResult("게시글 삭제 성공", HttpStatus.OK.value());
+    }
 
 
 
