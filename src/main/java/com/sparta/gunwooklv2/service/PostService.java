@@ -107,14 +107,18 @@ public class PostService {
     // 토큰체크
     public User checkToken(HttpServletRequest request){
 
+        // 클라이언트의 요청에서 JWT토큰 가지고 오기
         String token = jwtUtil.resolveToken(request);
         Claims claims;
-
-        if(token != null){
+        
+        // 추출된 토큰이 null이 아닐경우 토큰 유효성 검사 실행
+        if(token != null){ 
+            // JWT 토큰 유효성 검사
             if(jwtUtil.validateToken(token)){
-                // 토큰에서 사용자 정보 획득
+                // 토큰이 유효한 경우에 getUserInfoFromToken을 사용하여 토큰에서 사용자 정보 추출
                 claims = jwtUtil.getUserInfoFromToken(token);
             } else {
+                // 토큰이 존재하지 않으면 Token Error라는 메세지를 출력하며 예외를 발생시킨다.
                 throw new IllegalArgumentException("Token Error");
             }
 
@@ -125,6 +129,7 @@ public class PostService {
             return user;
 
         }
+        // 토큰이 없을경우 null을 반환해준다.
         return null;
     }
 }
