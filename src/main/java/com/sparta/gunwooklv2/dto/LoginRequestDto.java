@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class LoginRequestDto {
 
-    private String username;
-    private String password;
+    private String username; // 유저이름
+    private String password; // 비밀번호
 }

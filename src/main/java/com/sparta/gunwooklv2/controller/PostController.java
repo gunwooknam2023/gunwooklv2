@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController // 컨트롤러 정의
-@RequiredArgsConstructor
+@RequiredArgsConstructor // 생성자 주입
 @RequestMapping("/api") // 공통된 경로 묶어주기
 public class PostController {
 
